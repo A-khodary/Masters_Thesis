@@ -414,6 +414,38 @@ namespace equationChecker2 {
 		return T;
 	}
 
+	private: void addCalibration(double &X, double &Y, double &Z)
+	{
+		Matrix M = Matrix(3,3);
+		Matrix B = Matrix(3,1);
+		Matrix data = Matrix(3,1);
+		Matrix temp = Matrix(3,1);
+	
+		B(1,1) = 0.0487;
+		B(2,1) = 0.0358;
+		B(3,1) = -0.0732;
+	
+		M(1,1) = 0.9724;
+		M(2,1) = 0.0016;
+		M(3,1) = -0.0049;
+		M(1,2) = 0.0016;
+		M(2,2) = 0.9681;
+		M(3,2) = -0.0078;
+		M(1,3) = -0.0049;
+		M(2,3) = -0.0078;
+		M(3,3) = 1.0447;
+	
+		data(1,1) = X;
+		data(2,1) = Y;
+		data(3,1) = Z;
+		temp = data-B;
+		data = M*temp;
+
+		X = data(1,1);
+		Y = data(2,1);
+		Z = data(3,1);
+	}
+
 	private: System::Void buttonGo_Click(System::Object^  sender, System::EventArgs^  e) {
 				 accData.open("acc1.txt");
 				 go = 1;
@@ -428,6 +460,7 @@ namespace equationChecker2 {
 					std::getline (accData,line);
 					std::istringstream temp(line);
 					temp >> J1 >> J2 >> x >> y >> z;
+					addCalibration(x, y, z);
 					this->textBoxJ1Known->Text = J1.ToString();
 					this->textBoxJ2Known->Text = J2.ToString();
 					this->textBoxAccX->Text = x.ToString();
