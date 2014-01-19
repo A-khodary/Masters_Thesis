@@ -476,7 +476,15 @@ namespace equationChecker2 {
 					temp_z(4,1) = 0;
 
 					double _x, _y, _z;
+
+					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1);
+					_x = -sin(J2)*cos(J1) + cos(J2) + sin(J2)*sin(J1);
+					_y = sin(J1) + cos(J1);
+					this->textBoxUAccX->Text = _x.ToString();
+					this->textBoxUAccY->Text = _y.ToString();
+					this->textBoxUAccZ->Text = _z.ToString();
 					
+/*					
 					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1);
 					_x = -sin(J2)*cos(J2) + cos(J2) + sin(J2)*sin(J1);
 					_y = sin(J1) + cos(J1);
@@ -484,12 +492,12 @@ namespace equationChecker2 {
 					this->textBoxUAccY->Text = _y.ToString();
 					this->textBoxUAccZ->Text = _z.ToString();
 
-					/*
+
 					J1J2_out = rotAto2() * rot2to1(J2) * rot1to0(J1) * temp_z;
 					this->textBoxUAccX->Text = J1J2_out(1,1).ToString();
 					this->textBoxUAccY->Text = J1J2_out(2,1).ToString();
 					this->textBoxUAccZ->Text = J1J2_out(3,1).ToString();
-					*/
+*/
 					//J1J2_out.Print();
 				}
 				else
