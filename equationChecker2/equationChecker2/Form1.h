@@ -414,6 +414,16 @@ namespace equationChecker2 {
 		return T;
 	}
 
+	private: void normalizeVector(double &X, double &Y, double &Z)
+			 {
+				 double temp1,temp2;
+				 temp1 = (X*X) + (Y*Y) + (Z*Z);
+				 temp2 = sqrt(temp1);
+				 X = X/temp2;
+				 Y = Y/temp2;
+				 Z = Z/temp2;
+			 }
+
 	private: void addCalibration(double &X, double &Y, double &Z)
 	{
 		Matrix M = Matrix(3,3);
@@ -460,20 +470,17 @@ namespace equationChecker2 {
 					std::getline (accData,line);
 					std::istringstream temp(line);
 					temp >> J1 >> J2 >> x >> y >> z;
-					addCalibration(x, y, z);
+
+					normalizeVector(x, y, z);
+					//addCalibration(x, y, z);
+					
 					this->textBoxJ1Known->Text = J1.ToString();
 					this->textBoxJ2Known->Text = J2.ToString();
 					this->textBoxAccX->Text = x.ToString();
 					this->textBoxAccY->Text = y.ToString();
 					this->textBoxAccZ->Text = z.ToString();
 
-					Matrix temp_z, J1J2_out;
-
-					temp_z = Matrix(4,1);
-					temp_z(1,1) = 0;
-					temp_z(2,1) = 0;
-					temp_z(3,1) = 1;
-					temp_z(4,1) = 0;
+					Matrix J1J2_out;
 
 					double _x, _y, _z;
 /*
