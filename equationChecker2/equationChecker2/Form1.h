@@ -73,6 +73,20 @@ namespace equationChecker2 {
 	private: System::Windows::Forms::Label^  labelUnknown;
 	private: System::Windows::Forms::TextBox^  textBoxJ2Unknown;
 	private: System::Windows::Forms::TextBox^  textBoxJ1Unknown;
+	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Panel^  panel2;
+	private: System::Windows::Forms::Panel^  panel3;
+	private: System::Windows::Forms::TextBox^  textBoxZDiff;
+
+	private: System::Windows::Forms::TextBox^  textBoxXDiff;
+
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TextBox^  textBoxJ2Diff;
+
+	private: System::Windows::Forms::TextBox^  textBoxJ1Diff;
+	private: System::Windows::Forms::TextBox^  textBoxYDiff;
+
+
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -112,41 +126,55 @@ namespace equationChecker2 {
 			this->labelUnknown = (gcnew System::Windows::Forms::Label());
 			this->textBoxJ2Unknown = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxJ1Unknown = (gcnew System::Windows::Forms::TextBox());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->textBoxZDiff = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxXDiff = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBoxJ2Diff = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxJ1Diff = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxYDiff = (gcnew System::Windows::Forms::TextBox());
+			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// textBoxJ1Known
 			// 
-			this->textBoxJ1Known->Location = System::Drawing::Point(82, 18);
+			this->textBoxJ1Known->Location = System::Drawing::Point(3, 26);
 			this->textBoxJ1Known->Name = L"textBoxJ1Known";
-			this->textBoxJ1Known->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ1Known->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ1Known->TabIndex = 0;
 			this->textBoxJ1Known->Text = L"J1 Known";
 			// 
 			// textBoxJ2Known
 			// 
-			this->textBoxJ2Known->Location = System::Drawing::Point(82, 44);
+			this->textBoxJ2Known->Location = System::Drawing::Point(3, 52);
 			this->textBoxJ2Known->Name = L"textBoxJ2Known";
-			this->textBoxJ2Known->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ2Known->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ2Known->TabIndex = 1;
 			this->textBoxJ2Known->Text = L"J2 Known";
 			// 
 			// labelJ1Known
 			// 
 			this->labelJ1Known->AutoSize = true;
-			this->labelJ1Known->Location = System::Drawing::Point(22, 21);
+			this->labelJ1Known->Location = System::Drawing::Point(23, 41);
 			this->labelJ1Known->Name = L"labelJ1Known";
-			this->labelJ1Known->Size = System::Drawing::Size(54, 13);
+			this->labelJ1Known->Size = System::Drawing::Size(18, 13);
 			this->labelJ1Known->TabIndex = 2;
-			this->labelJ1Known->Text = L"J1 Known";
+			this->labelJ1Known->Text = L"J1";
+			this->labelJ1Known->Click += gcnew System::EventHandler(this, &Form1::labelJ1Known_Click);
 			// 
 			// labelJ2Known
 			// 
 			this->labelJ2Known->AutoSize = true;
-			this->labelJ2Known->Location = System::Drawing::Point(22, 47);
+			this->labelJ2Known->Location = System::Drawing::Point(23, 67);
 			this->labelJ2Known->Name = L"labelJ2Known";
-			this->labelJ2Known->Size = System::Drawing::Size(54, 13);
+			this->labelJ2Known->Size = System::Drawing::Size(18, 13);
 			this->labelJ2Known->TabIndex = 3;
-			this->labelJ2Known->Text = L"J2 Known";
+			this->labelJ2Known->Text = L"J2";
+			this->labelJ2Known->Click += gcnew System::EventHandler(this, &Form1::labelJ2Known_Click);
 			// 
 			// labelAccX
 			// 
@@ -177,27 +205,27 @@ namespace equationChecker2 {
 			// 
 			// textBoxAccX
 			// 
-			this->textBoxAccX->Location = System::Drawing::Point(82, 90);
+			this->textBoxAccX->Location = System::Drawing::Point(3, 78);
 			this->textBoxAccX->Name = L"textBoxAccX";
-			this->textBoxAccX->Size = System::Drawing::Size(71, 20);
+			this->textBoxAccX->Size = System::Drawing::Size(100, 20);
 			this->textBoxAccX->TabIndex = 7;
-			this->textBoxAccX->Text = L"X";
+			this->textBoxAccX->Text = L"X Known";
 			// 
 			// textBoxAccY
 			// 
-			this->textBoxAccY->Location = System::Drawing::Point(82, 117);
+			this->textBoxAccY->Location = System::Drawing::Point(3, 105);
 			this->textBoxAccY->Name = L"textBoxAccY";
-			this->textBoxAccY->Size = System::Drawing::Size(71, 20);
+			this->textBoxAccY->Size = System::Drawing::Size(100, 20);
 			this->textBoxAccY->TabIndex = 8;
-			this->textBoxAccY->Text = L"Y";
+			this->textBoxAccY->Text = L"Y Known";
 			// 
 			// textBoxAccZ
 			// 
-			this->textBoxAccZ->Location = System::Drawing::Point(82, 143);
+			this->textBoxAccZ->Location = System::Drawing::Point(3, 131);
 			this->textBoxAccZ->Name = L"textBoxAccZ";
-			this->textBoxAccZ->Size = System::Drawing::Size(71, 20);
+			this->textBoxAccZ->Size = System::Drawing::Size(100, 20);
 			this->textBoxAccZ->TabIndex = 9;
-			this->textBoxAccZ->Text = L"Z";
+			this->textBoxAccZ->Text = L"Z Known";
 			// 
 			// labelJ2Test
 			// 
@@ -219,7 +247,7 @@ namespace equationChecker2 {
 			// 
 			// textBoxJ2Test
 			// 
-			this->textBoxJ2Test->Location = System::Drawing::Point(82, 208);
+			this->textBoxJ2Test->Location = System::Drawing::Point(68, 204);
 			this->textBoxJ2Test->Name = L"textBoxJ2Test";
 			this->textBoxJ2Test->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ2Test->TabIndex = 11;
@@ -227,7 +255,7 @@ namespace equationChecker2 {
 			// 
 			// textBoxJ1Test
 			// 
-			this->textBoxJ1Test->Location = System::Drawing::Point(82, 182);
+			this->textBoxJ1Test->Location = System::Drawing::Point(68, 182);
 			this->textBoxJ1Test->Name = L"textBoxJ1Test";
 			this->textBoxJ1Test->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ1Test->TabIndex = 10;
@@ -235,7 +263,7 @@ namespace equationChecker2 {
 			// 
 			// buttonGo
 			// 
-			this->buttonGo->Location = System::Drawing::Point(301, 37);
+			this->buttonGo->Location = System::Drawing::Point(210, 185);
 			this->buttonGo->Name = L"buttonGo";
 			this->buttonGo->Size = System::Drawing::Size(75, 23);
 			this->buttonGo->TabIndex = 14;
@@ -251,32 +279,32 @@ namespace equationChecker2 {
 			// 
 			// textBoxUAccZ
 			// 
-			this->textBoxUAccZ->Location = System::Drawing::Point(201, 143);
+			this->textBoxUAccZ->Location = System::Drawing::Point(3, 131);
 			this->textBoxUAccZ->Name = L"textBoxUAccZ";
-			this->textBoxUAccZ->Size = System::Drawing::Size(71, 20);
+			this->textBoxUAccZ->Size = System::Drawing::Size(100, 20);
 			this->textBoxUAccZ->TabIndex = 17;
-			this->textBoxUAccZ->Text = L"Z";
+			this->textBoxUAccZ->Text = L"Z Unknown";
 			// 
 			// textBoxUAccY
 			// 
-			this->textBoxUAccY->Location = System::Drawing::Point(201, 117);
+			this->textBoxUAccY->Location = System::Drawing::Point(3, 105);
 			this->textBoxUAccY->Name = L"textBoxUAccY";
-			this->textBoxUAccY->Size = System::Drawing::Size(71, 20);
+			this->textBoxUAccY->Size = System::Drawing::Size(100, 20);
 			this->textBoxUAccY->TabIndex = 16;
-			this->textBoxUAccY->Text = L"Y";
+			this->textBoxUAccY->Text = L"Y Unknown";
 			// 
 			// textBoxUAccX
 			// 
-			this->textBoxUAccX->Location = System::Drawing::Point(201, 90);
+			this->textBoxUAccX->Location = System::Drawing::Point(3, 78);
 			this->textBoxUAccX->Name = L"textBoxUAccX";
-			this->textBoxUAccX->Size = System::Drawing::Size(71, 20);
+			this->textBoxUAccX->Size = System::Drawing::Size(100, 20);
 			this->textBoxUAccX->TabIndex = 15;
-			this->textBoxUAccX->Text = L"X";
+			this->textBoxUAccX->Text = L"X Unknown";
 			// 
 			// labelKnown
 			// 
 			this->labelKnown->AutoSize = true;
-			this->labelKnown->Location = System::Drawing::Point(97, 74);
+			this->labelKnown->Location = System::Drawing::Point(34, 8);
 			this->labelKnown->Name = L"labelKnown";
 			this->labelKnown->Size = System::Drawing::Size(40, 13);
 			this->labelKnown->TabIndex = 18;
@@ -285,7 +313,7 @@ namespace equationChecker2 {
 			// labelUnknown
 			// 
 			this->labelUnknown->AutoSize = true;
-			this->labelUnknown->Location = System::Drawing::Point(210, 74);
+			this->labelUnknown->Location = System::Drawing::Point(28, 8);
 			this->labelUnknown->Name = L"labelUnknown";
 			this->labelUnknown->Size = System::Drawing::Size(53, 13);
 			this->labelUnknown->TabIndex = 19;
@@ -293,50 +321,135 @@ namespace equationChecker2 {
 			// 
 			// textBoxJ2Unknown
 			// 
-			this->textBoxJ2Unknown->Location = System::Drawing::Point(201, 44);
+			this->textBoxJ2Unknown->Location = System::Drawing::Point(3, 52);
 			this->textBoxJ2Unknown->Name = L"textBoxJ2Unknown";
-			this->textBoxJ2Unknown->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ2Unknown->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ2Unknown->TabIndex = 21;
 			this->textBoxJ2Unknown->Text = L"J2 Unknown";
 			// 
 			// textBoxJ1Unknown
 			// 
-			this->textBoxJ1Unknown->Location = System::Drawing::Point(201, 18);
+			this->textBoxJ1Unknown->Location = System::Drawing::Point(3, 26);
 			this->textBoxJ1Unknown->Name = L"textBoxJ1Unknown";
-			this->textBoxJ1Unknown->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ1Unknown->Size = System::Drawing::Size(100, 20);
 			this->textBoxJ1Unknown->TabIndex = 20;
 			this->textBoxJ1Unknown->Text = L"J1 Unknown";
+			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->textBoxAccX);
+			this->panel1->Controls->Add(this->textBoxJ1Known);
+			this->panel1->Controls->Add(this->textBoxJ2Known);
+			this->panel1->Controls->Add(this->textBoxAccY);
+			this->panel1->Controls->Add(this->labelKnown);
+			this->panel1->Controls->Add(this->textBoxAccZ);
+			this->panel1->Location = System::Drawing::Point(65, 12);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(107, 158);
+			this->panel1->TabIndex = 22;
+			// 
+			// panel2
+			// 
+			this->panel2->Controls->Add(this->textBoxUAccZ);
+			this->panel2->Controls->Add(this->textBoxUAccX);
+			this->panel2->Controls->Add(this->labelUnknown);
+			this->panel2->Controls->Add(this->textBoxJ2Unknown);
+			this->panel2->Controls->Add(this->textBoxJ1Unknown);
+			this->panel2->Controls->Add(this->textBoxUAccY);
+			this->panel2->Location = System::Drawing::Point(178, 12);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(107, 158);
+			this->panel2->TabIndex = 23;
+			// 
+			// panel3
+			// 
+			this->panel3->Controls->Add(this->textBoxZDiff);
+			this->panel3->Controls->Add(this->textBoxXDiff);
+			this->panel3->Controls->Add(this->label1);
+			this->panel3->Controls->Add(this->textBoxJ2Diff);
+			this->panel3->Controls->Add(this->textBoxJ1Diff);
+			this->panel3->Controls->Add(this->textBoxYDiff);
+			this->panel3->Location = System::Drawing::Point(291, 12);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(107, 158);
+			this->panel3->TabIndex = 24;
+			// 
+			// textBoxZDiff
+			// 
+			this->textBoxZDiff->Location = System::Drawing::Point(3, 131);
+			this->textBoxZDiff->Name = L"textBoxZDiff";
+			this->textBoxZDiff->Size = System::Drawing::Size(100, 20);
+			this->textBoxZDiff->TabIndex = 17;
+			this->textBoxZDiff->Text = L"Z Difference";
+			// 
+			// textBoxXDiff
+			// 
+			this->textBoxXDiff->Location = System::Drawing::Point(3, 78);
+			this->textBoxXDiff->Name = L"textBoxXDiff";
+			this->textBoxXDiff->Size = System::Drawing::Size(100, 20);
+			this->textBoxXDiff->TabIndex = 15;
+			this->textBoxXDiff->Text = L"X Difference";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(12, 8);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(56, 13);
+			this->label1->TabIndex = 19;
+			this->label1->Text = L"Difference";
+			// 
+			// textBoxJ2Diff
+			// 
+			this->textBoxJ2Diff->Location = System::Drawing::Point(3, 52);
+			this->textBoxJ2Diff->Name = L"textBoxJ2Diff";
+			this->textBoxJ2Diff->Size = System::Drawing::Size(100, 20);
+			this->textBoxJ2Diff->TabIndex = 21;
+			this->textBoxJ2Diff->Text = L"J2 Difference";
+			// 
+			// textBoxJ1Diff
+			// 
+			this->textBoxJ1Diff->Location = System::Drawing::Point(3, 26);
+			this->textBoxJ1Diff->Name = L"textBoxJ1Diff";
+			this->textBoxJ1Diff->Size = System::Drawing::Size(100, 20);
+			this->textBoxJ1Diff->TabIndex = 20;
+			this->textBoxJ1Diff->Text = L"J1 Difference";
+			// 
+			// textBoxYDiff
+			// 
+			this->textBoxYDiff->Location = System::Drawing::Point(3, 105);
+			this->textBoxYDiff->Name = L"textBoxYDiff";
+			this->textBoxYDiff->Size = System::Drawing::Size(100, 20);
+			this->textBoxYDiff->TabIndex = 16;
+			this->textBoxYDiff->Text = L"Y Difference";
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(401, 262);
-			this->Controls->Add(this->textBoxJ2Unknown);
-			this->Controls->Add(this->textBoxJ1Unknown);
-			this->Controls->Add(this->labelUnknown);
-			this->Controls->Add(this->labelKnown);
-			this->Controls->Add(this->textBoxUAccZ);
-			this->Controls->Add(this->textBoxUAccY);
-			this->Controls->Add(this->textBoxUAccX);
+			this->ClientSize = System::Drawing::Size(408, 235);
+			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->buttonGo);
 			this->Controls->Add(this->labelJ2Test);
 			this->Controls->Add(this->labelJ1Test);
 			this->Controls->Add(this->textBoxJ2Test);
 			this->Controls->Add(this->textBoxJ1Test);
-			this->Controls->Add(this->textBoxAccZ);
-			this->Controls->Add(this->textBoxAccY);
-			this->Controls->Add(this->textBoxAccX);
 			this->Controls->Add(this->labelAccZ);
 			this->Controls->Add(this->labelAccY);
 			this->Controls->Add(this->labelAccX);
 			this->Controls->Add(this->labelJ2Known);
 			this->Controls->Add(this->labelJ1Known);
-			this->Controls->Add(this->textBoxJ2Known);
-			this->Controls->Add(this->textBoxJ1Known);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -504,60 +617,45 @@ namespace equationChecker2 {
 
 					Matrix J1J2_out;
 
-					double _x, _y, _z, _J1, _J2, _temp;
+					double _x, _y, _z, _J1, _J2, _temp, _xDiff, _yDiff, _zDiff, _J1Diff, _J2Diff;
 
 					//Test 3
 					_z = -1*sin(J1)*cos(J2);
 					_x = sin(J1)*sin(J2);
 					_y = cos(J1);
+					_x = -1*_x;
+					_y = -1*_y;
+					this->textBoxUAccX->Text = _x.ToString();
+					this->textBoxUAccY->Text = _y.ToString();
+					this->textBoxUAccZ->Text = _z.ToString();
+
 					_J1 = acos(y);
 					_temp = _x/sin(_J1);
 					_J2 = asin(_temp);
-
-					this->textBoxUAccX->Text = _x.ToString();
-					this->textBoxUAccY->Text = _y.ToString();
-					this->textBoxUAccZ->Text = _z.ToString();
 					this->textBoxJ1Unknown->Text = _J1.ToString();
 					this->textBoxJ2Unknown->Text = _J2.ToString();
+					
 
+					_xDiff = abs(x - _x);
+					_yDiff = abs(y - _y);
+					_zDiff = abs(z - _z);
+					_J1Diff = abs(J1 - _J1);
+					_J2Diff = abs(J2 - _J2);
+					this->textBoxXDiff->Text = _xDiff.ToString();
+					this->textBoxYDiff->Text = _yDiff.ToString();
+					this->textBoxZDiff->Text = _zDiff.ToString();
+					this->textBoxJ1Diff->Text = _J1Diff.ToString();
+					this->textBoxJ2Diff->Text = _J2Diff.ToString();
 
-/*
-					//Test 4
-					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1) - 110*sin(J2);
-					_x = -sin(J2)*cos(J1) + cos(J2) + sin(J2)*sin(J1) - 110*cos(J2);
-					_y = sin(J1) + cos(J1) + 146;
-					this->textBoxUAccX->Text = _x.ToString();
-					this->textBoxUAccY->Text = _y.ToString();
-					this->textBoxUAccZ->Text = _z.ToString();
-
-					//Test 3
-					_z = -1*sin(J1)*cos(J2);
-					_x = sin(J1)*sin(J2);
-					_y = cos(J1);
-					this->textBoxUAccX->Text = _x.ToString();
-					this->textBoxUAccY->Text = _y.ToString();
-					this->textBoxUAccZ->Text = _z.ToString();
-
-
-					//Test 2
-					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1);
-					_x = -sin(J2)*cos(J1) + cos(J2) + sin(J2)*sin(J1);
-					_y = sin(J1) + cos(J1);
-					this->textBoxUAccX->Text = _x.ToString();
-					this->textBoxUAccY->Text = _y.ToString();
-					this->textBoxUAccZ->Text = _z.ToString();
-
-
-					J1J2_out = rotAto2() * rot2to1(J2) * rot1to0(J1) * temp_z;
-					this->textBoxUAccX->Text = J1J2_out(1,1).ToString();
-					this->textBoxUAccY->Text = J1J2_out(2,1).ToString();
-					this->textBoxUAccZ->Text = J1J2_out(3,1).ToString();
-*/
 					//J1J2_out.Print();
 				}
 				else
 					go = 0;
 			 }
+		 }
+private: System::Void labelJ2Known_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void labelJ1Known_Click(System::Object^  sender, System::EventArgs^  e) {
 		 }
 };
 }
