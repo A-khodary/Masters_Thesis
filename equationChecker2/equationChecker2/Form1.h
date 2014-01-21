@@ -71,6 +71,8 @@ namespace equationChecker2 {
 
 	private: System::Windows::Forms::Label^  labelKnown;
 	private: System::Windows::Forms::Label^  labelUnknown;
+	private: System::Windows::Forms::TextBox^  textBoxJ2Unknown;
+	private: System::Windows::Forms::TextBox^  textBoxJ1Unknown;
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -108,6 +110,8 @@ namespace equationChecker2 {
 			this->textBoxUAccX = (gcnew System::Windows::Forms::TextBox());
 			this->labelKnown = (gcnew System::Windows::Forms::Label());
 			this->labelUnknown = (gcnew System::Windows::Forms::Label());
+			this->textBoxJ2Unknown = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxJ1Unknown = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// textBoxJ1Known
@@ -231,7 +235,7 @@ namespace equationChecker2 {
 			// 
 			// buttonGo
 			// 
-			this->buttonGo->Location = System::Drawing::Point(197, 21);
+			this->buttonGo->Location = System::Drawing::Point(301, 37);
 			this->buttonGo->Name = L"buttonGo";
 			this->buttonGo->Size = System::Drawing::Size(75, 23);
 			this->buttonGo->TabIndex = 14;
@@ -287,11 +291,29 @@ namespace equationChecker2 {
 			this->labelUnknown->TabIndex = 19;
 			this->labelUnknown->Text = L"Unknown";
 			// 
+			// textBoxJ2Unknown
+			// 
+			this->textBoxJ2Unknown->Location = System::Drawing::Point(201, 44);
+			this->textBoxJ2Unknown->Name = L"textBoxJ2Unknown";
+			this->textBoxJ2Unknown->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ2Unknown->TabIndex = 21;
+			this->textBoxJ2Unknown->Text = L"J2 Unknown";
+			// 
+			// textBoxJ1Unknown
+			// 
+			this->textBoxJ1Unknown->Location = System::Drawing::Point(201, 18);
+			this->textBoxJ1Unknown->Name = L"textBoxJ1Unknown";
+			this->textBoxJ1Unknown->Size = System::Drawing::Size(71, 20);
+			this->textBoxJ1Unknown->TabIndex = 20;
+			this->textBoxJ1Unknown->Text = L"J1 Unknown";
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 262);
+			this->ClientSize = System::Drawing::Size(401, 262);
+			this->Controls->Add(this->textBoxJ2Unknown);
+			this->Controls->Add(this->textBoxJ1Unknown);
 			this->Controls->Add(this->labelUnknown);
 			this->Controls->Add(this->labelKnown);
 			this->Controls->Add(this->textBoxUAccZ);
@@ -482,7 +504,23 @@ namespace equationChecker2 {
 
 					Matrix J1J2_out;
 
-					double _x, _y, _z;
+					double _x, _y, _z, _J1, _J2, _temp;
+
+					//Test 3
+					_z = -1*sin(J1)*cos(J2);
+					_x = sin(J1)*sin(J2);
+					_y = cos(J1);
+					_J1 = acos(y);
+					_temp = _x/sin(_J1);
+					_J2 = asin(_temp);
+
+					this->textBoxUAccX->Text = _x.ToString();
+					this->textBoxUAccY->Text = _y.ToString();
+					this->textBoxUAccZ->Text = _z.ToString();
+					this->textBoxJ1Unknown->Text = _J1.ToString();
+					this->textBoxJ2Unknown->Text = _J2.ToString();
+
+
 /*
 					//Test 4
 					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1) - 110*sin(J2);
@@ -491,7 +529,7 @@ namespace equationChecker2 {
 					this->textBoxUAccX->Text = _x.ToString();
 					this->textBoxUAccY->Text = _y.ToString();
 					this->textBoxUAccZ->Text = _z.ToString();
-*/
+
 					//Test 3
 					_z = -1*sin(J1)*cos(J2);
 					_x = sin(J1)*sin(J2);
@@ -499,8 +537,7 @@ namespace equationChecker2 {
 					this->textBoxUAccX->Text = _x.ToString();
 					this->textBoxUAccY->Text = _y.ToString();
 					this->textBoxUAccZ->Text = _z.ToString();
-		
-/*
+
 
 					//Test 2
 					_z = cos(J2)*cos(J1) + sin(J2) - cos(J2)*sin(J1);
