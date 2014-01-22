@@ -55,10 +55,10 @@ namespace equationChecker2 {
 	private: System::Windows::Forms::TextBox^  textBoxAccX;
 	private: System::Windows::Forms::TextBox^  textBoxAccY;
 	private: System::Windows::Forms::TextBox^  textBoxAccZ;
-	private: System::Windows::Forms::Label^  labelJ2Test;
-	private: System::Windows::Forms::Label^  labelJ1Test;
-	private: System::Windows::Forms::TextBox^  textBoxJ2Test;
-	private: System::Windows::Forms::TextBox^  textBoxJ1Test;
+
+
+
+
 	private: System::Windows::Forms::Button^  buttonGo;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::TextBox^  textBoxUAccZ;
@@ -113,10 +113,6 @@ namespace equationChecker2 {
 			this->textBoxAccX = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxAccY = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxAccZ = (gcnew System::Windows::Forms::TextBox());
-			this->labelJ2Test = (gcnew System::Windows::Forms::Label());
-			this->labelJ1Test = (gcnew System::Windows::Forms::Label());
-			this->textBoxJ2Test = (gcnew System::Windows::Forms::TextBox());
-			this->textBoxJ1Test = (gcnew System::Windows::Forms::TextBox());
 			this->buttonGo = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->textBoxUAccZ = (gcnew System::Windows::Forms::TextBox());
@@ -226,40 +222,6 @@ namespace equationChecker2 {
 			this->textBoxAccZ->Size = System::Drawing::Size(100, 20);
 			this->textBoxAccZ->TabIndex = 9;
 			this->textBoxAccZ->Text = L"Z Known";
-			// 
-			// labelJ2Test
-			// 
-			this->labelJ2Test->AutoSize = true;
-			this->labelJ2Test->Location = System::Drawing::Point(22, 211);
-			this->labelJ2Test->Name = L"labelJ2Test";
-			this->labelJ2Test->Size = System::Drawing::Size(42, 13);
-			this->labelJ2Test->TabIndex = 13;
-			this->labelJ2Test->Text = L"J2 Test";
-			// 
-			// labelJ1Test
-			// 
-			this->labelJ1Test->AutoSize = true;
-			this->labelJ1Test->Location = System::Drawing::Point(22, 185);
-			this->labelJ1Test->Name = L"labelJ1Test";
-			this->labelJ1Test->Size = System::Drawing::Size(38, 13);
-			this->labelJ1Test->TabIndex = 12;
-			this->labelJ1Test->Text = L"J1 test";
-			// 
-			// textBoxJ2Test
-			// 
-			this->textBoxJ2Test->Location = System::Drawing::Point(68, 204);
-			this->textBoxJ2Test->Name = L"textBoxJ2Test";
-			this->textBoxJ2Test->Size = System::Drawing::Size(100, 20);
-			this->textBoxJ2Test->TabIndex = 11;
-			this->textBoxJ2Test->Text = L"J2 Test";
-			// 
-			// textBoxJ1Test
-			// 
-			this->textBoxJ1Test->Location = System::Drawing::Point(68, 182);
-			this->textBoxJ1Test->Name = L"textBoxJ1Test";
-			this->textBoxJ1Test->Size = System::Drawing::Size(100, 20);
-			this->textBoxJ1Test->TabIndex = 10;
-			this->textBoxJ1Test->Text = L"J1 Test";
 			// 
 			// buttonGo
 			// 
@@ -376,6 +338,8 @@ namespace equationChecker2 {
 			// 
 			// textBoxZDiff
 			// 
+			this->textBoxZDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBoxZDiff->Location = System::Drawing::Point(3, 131);
 			this->textBoxZDiff->Name = L"textBoxZDiff";
 			this->textBoxZDiff->Size = System::Drawing::Size(100, 20);
@@ -384,6 +348,8 @@ namespace equationChecker2 {
 			// 
 			// textBoxXDiff
 			// 
+			this->textBoxXDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBoxXDiff->Location = System::Drawing::Point(3, 78);
 			this->textBoxXDiff->Name = L"textBoxXDiff";
 			this->textBoxXDiff->Size = System::Drawing::Size(100, 20);
@@ -401,6 +367,8 @@ namespace equationChecker2 {
 			// 
 			// textBoxJ2Diff
 			// 
+			this->textBoxJ2Diff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBoxJ2Diff->Location = System::Drawing::Point(3, 52);
 			this->textBoxJ2Diff->Name = L"textBoxJ2Diff";
 			this->textBoxJ2Diff->Size = System::Drawing::Size(100, 20);
@@ -409,6 +377,8 @@ namespace equationChecker2 {
 			// 
 			// textBoxJ1Diff
 			// 
+			this->textBoxJ1Diff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBoxJ1Diff->Location = System::Drawing::Point(3, 26);
 			this->textBoxJ1Diff->Name = L"textBoxJ1Diff";
 			this->textBoxJ1Diff->Size = System::Drawing::Size(100, 20);
@@ -417,6 +387,8 @@ namespace equationChecker2 {
 			// 
 			// textBoxYDiff
 			// 
+			this->textBoxYDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBoxYDiff->Location = System::Drawing::Point(3, 105);
 			this->textBoxYDiff->Name = L"textBoxYDiff";
 			this->textBoxYDiff->Size = System::Drawing::Size(100, 20);
@@ -432,10 +404,6 @@ namespace equationChecker2 {
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->buttonGo);
-			this->Controls->Add(this->labelJ2Test);
-			this->Controls->Add(this->labelJ1Test);
-			this->Controls->Add(this->textBoxJ2Test);
-			this->Controls->Add(this->textBoxJ1Test);
 			this->Controls->Add(this->labelAccZ);
 			this->Controls->Add(this->labelAccY);
 			this->Controls->Add(this->labelAccX);
@@ -606,8 +574,8 @@ namespace equationChecker2 {
 					std::istringstream temp(line);
 					temp >> J1 >> J2 >> x >> y >> z;
 
-					normalizeVector(x, y, z);
-					//addCalibration(x, y, z);
+					//normalizeVector(x, y, z);
+					addCalibration(x, y, z);
 					
 					this->textBoxJ1Known->Text = J1.ToString();
 					this->textBoxJ2Known->Text = J2.ToString();
@@ -629,9 +597,9 @@ namespace equationChecker2 {
 					this->textBoxUAccY->Text = _y.ToString();
 					this->textBoxUAccZ->Text = _z.ToString();
 
-					_J1 = acos(y);
-					_temp = _x/sin(_J1);
-					_J2 = asin(_temp);
+					_J2 = atan(x/z);
+					_temp = -1*x/sin(_J2);
+					_J1 = atan2(_temp, (-1*y));
 					this->textBoxJ1Unknown->Text = _J1.ToString();
 					this->textBoxJ2Unknown->Text = _J2.ToString();
 					
@@ -647,6 +615,16 @@ namespace equationChecker2 {
 					this->textBoxJ1Diff->Text = _J1Diff.ToString();
 					this->textBoxJ2Diff->Text = _J2Diff.ToString();
 
+					this->textBoxXDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(255-(_xDiff*3000))));
+					this->textBoxYDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(255-(_yDiff*3000))));
+					this->textBoxZDiff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(255-(_zDiff*3000))));
+					this->textBoxJ1Diff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(255-(_J1Diff*3000))));
+					this->textBoxJ2Diff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(255-(_J2Diff*3000))));
 					//J1J2_out.Print();
 				}
 				else
